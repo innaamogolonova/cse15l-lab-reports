@@ -23,14 +23,16 @@ Now we can see that the prompt of the terminal changed to include the /lecture1/
 But what would happen if we passed a path to a file as an argument for the `cd` command? 
 
 ```
-[user@sahara ~/lecture1]$ cd Hello.java 
+[user@sahara ~/lecture1]$ cd Hello.java
 bash: cd: Hello.java: Not a directory
 ```
 As you can see, we got an error message after passing a file Hello.java as an argument. In the message it states that the argument passed into the `cd` command has to be a directory, which Hello.java is not. 
 
 
 ## ls command
-The `ls` command allows us to see the list of files and folders contained in the current directory. 
+The `ls` command allows us to see the list of files and folders contained in the current directory. For example, if we use the `ls` command while in /home/lecture1/ working directory, this is the output that we will get: 
+
+
 
 
 ## cat command
