@@ -7,7 +7,7 @@ The `cd` command is used to change directories. When the `cd` command is run wit
 
 ![Image](cd-no-args.png)
 
-Here, the start working directory was /home and it didn't change after running the command `cd` because there was no specified directory to move into. This is not an error message, just no change has occurred. 
+Here, the start working directory was /lecture1 and after running the command `cd` it moved back to the home directory. This is not an error message, this is the expected output. 
 
 
 In order for the `cd` command to perform appropriately, a directory needs to be specified, like so: 
