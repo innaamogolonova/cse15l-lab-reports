@@ -50,20 +50,84 @@ technical/government/Media/Weak_economy.txt
 ```
 The example above surrounding "con" with stars will produce an input of all the paths containing the substring "con", no matter the capitalization. Also, as you can see, the output produced is not contained within only technical/govenment directory. The find command search through all the sub-directories of government/ like About_LSC and Media. 
 
+This option was found in Source 1 listed below. 
+
 ### Option 2: `-type`
+Using the `find -type` command we can specify what type of directories we want to find. Using `-type` might be useful if trying to narrow doen the search and look specifically for a directory or a file. 
 
-### Option 3:
+```
+$ find technical/government/Alcohol_Problems -type f
+technical/government/Alcohol_Problems/Session2-PDF.txt
+technical/government/Alcohol_Problems/Session3-PDF.txt
+technical/government/Alcohol_Problems/DraftRecom-PDF.txt
+technical/government/Alcohol_Problems/Session4-PDF.txt
+```
+In this example the `-type f` option recursively returned all the file paths in the specified directory technical/government/Alcohol_Problems. 
 
-### Option 4: 
+```
+$ find technical/government -type d                 
+technical/government
+technical/government/About_LSC
+technical/government/Env_Prot_Agen
+technical/government/Alcohol_Problems
+technical/government/Gen_Account_Office
+technical/government/Post_Rate_Comm
+technical/government/Media
+```
+Option `-type d` will only return the sub directories of the specified directory technical/governmnet without displaying teh files stored in them. This is useful to clear up unnecessary cluter of files if looking specifically for a directory. 
 
+This option was found in Source 2 listed below. 
 
+### Option 3: `-maxdepth`
+Since the `find` command searched recursively through a provided directory sometimes it might be useful to limit the search to go only a certain number of subdirectories deep. You can do this using the `-maxdepth` option. 
+
+```
+$ find technical -maxdepth 1        
+technical
+technical/government
+technical/plos
+technical/base-pair.txt
+technical/biomed
+technical/911report
+```
+Since technical/ directory has a lot of subdirectories and files in it, using `-maxdepth 1` option is a good way to narrow down the search to only go one subdirectory deep. 
+
+```
+$ find technical -maxdepth 2 -type d
+technical
+technical/government
+technical/government/About_LSC
+technical/government/Env_Prot_Agen
+technical/government/Alcohol_Problems
+technical/government/Gen_Account_Office
+technical/government/Post_Rate_Comm
+technical/government/Media
+technical/plos
+technical/biomed
+technical/911report
+```
+Here, using the same technical/ directory we can specify to display results 2 subdirectories deep using `-maxdepth 2`. Also we can combine options, like with `-type` from above, to narrow down the search even further, for example showing only directories 2 layers deep from the technical/ directory as seen in this example. 
+
+This option was found in Source 1 listed below. 
+### Option 4: `-empty` 
+Using the `-empty` option will display empty files in the specified directory. This might be useful for tracking errors, for example if no files are supposed to be empty. 
+
+```
+$ find technical -type f -empty
+technical/base-pair.txt
+```
+In this example, the command returns the only empty file in the directory technical/. This file is empty by mistake and now we know that this is an error that needs to be fixed. 
+
+```
+$ find technical/government -type f -empty
+$
+```
+Calling `find -empty` on a directory with no empty files returns nothing. This is not an error message, but the expected output of this command. 
+
+This option was found in Source 1 listed below.
 #### Sources:
 I used a google search "find command options" to start my research and then used the below websites that have resulted from the search. 
-[]([http://a.com](https://www.redhat.com/sysadmin/linux-find-command))
-[](https://tecadmin.net/linux-find-command-with-examples/)
 
-For example, we saw the -name option for find in class. For each of those options, give 2 examples of using it on files and directories from ./technical. Show each example as a code block that shows the command and its output, and write a sentence or two about what it’s doing and why it’s useful.
+[Source 1](https://www.redhat.com/sysadmin/linux-find-command)
 
-That makes 8 total examples, all focused on a single command. There should be two examples each for four different command-line options. Many commands like these have pretty sophisticated behavior possible – it can take years to be exposed to and learn all of the possible tricks and inner workings.
-
-Along with each option/mode you show, cite your source for how you found out about it as a URL or a description of where you found it. See the syllabus on Academic Integrity and how to cite sources like ChatGPT for this class.
+[Source 2](https://tecadmin.net/linux-find-command-with-examples/)
