@@ -23,7 +23,7 @@ This input did not produce a failure for the buggy method:
 ```
 
 This was the symptom (output of running the tests) for the buggy method: 
-INSERT IMAGE
+![Image](JUnit_failures_lab4.png)
 
 This was the buggy method code before the fix: 
 ```
